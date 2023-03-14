@@ -1,0 +1,14 @@
+name: pyml
+channels:
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - numpy
+    - pandas
+    - matplotlib
+    - seaborn
+    - scikit-learn
+    - openpyxl
+    - jupyterlab
