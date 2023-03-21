@@ -1,0 +1,14 @@
+name: pyml
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - libblas=*=*accelerate
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - openpyxl
+  - jupyterlab
+  - pip
