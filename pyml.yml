@@ -1,14 +1,13 @@
 name: pyml
 channels:
-  - defaults
+  - conda-forge
 dependencies:
   - python=3.9
   - pip
-  - pip:
-    - numpy
-    - pandas
-    - matplotlib
-    - seaborn
-    - scikit-learn
-    - openpyxl
-    - jupyterlab
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - openpyxl
+  - jupyterlab

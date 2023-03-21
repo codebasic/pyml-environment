@@ -3,6 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.9
+  - pip
   - libblas=*=*accelerate
   - numpy
   - pandas
@@ -11,4 +12,3 @@ dependencies:
   - scikit-learn
   - openpyxl
   - jupyterlab
-  - pip
