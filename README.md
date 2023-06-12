@@ -9,9 +9,83 @@ Codebasic (c) 2023
     1. Mac (Apple Silicon/Intel x86-64bit)
     1. Linux (x86-64bit)
 
-윈도우의 경우, 직접 설치보다는 환경 구성이 완료된 도커 사용을 권장합니다. 
+## 설치 방법
 
-유닉스 계열 플랫폼은 직접 설치를 권장합니다.
+둘 중 하나의 방법을 선택
+
+1. 직접 설치 (conda)
+1. Docker
+
+# 직접 설치
+
+제시된 절차는 오픈 소스 라이선스 소프트웨어만을 활용하고 있습니다.
+
+## conda
+
+Conda는 패키지 관리 프로그램입니다. 소프트웨어 버전과 의존성 관리에 활용합니다.
+
+### Windows
+
+[Miniconda Windows](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe) 다운로드 및 설치
+
+### Mac
+
+아래 절차는 [Homebrew](https://brew.sh/index_ko) 소프트웨어를 가정합니다.
+
+conda 설치
+```
+brew install miniconda
+```
+
+쉘에서 conda 환경 사용 설정
+```
+conda init "$(basename "${SHELL}")"
+```
+터미널 세션 새로 시작 필요.
+
+### Linux
+
+[Miniforge](https://github.com/conda-forge/miniforge) 설치
+
+Miniforge 설치 파일 다운로드
+```
+wget -O Miniforge3.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+```
+
+Miniforge 설치
+```
+./Miniforge3.sh
+```
+
+쉘에서 conda 환경 사용 설정
+```
+conda init "$(basename "${SHELL}")"
+```
+터미널 세션 새로 시작 필요.
+
+## 기계학습 소프트웨어
+
+### 파이썬 환경 생성
+
+```
+conda env create -f pyml.yml
+```
+
+[pyml.yml](pyml.yml) 참조.
+
+파이썬 환경 활성화
+```
+conda activate pyml
+```
+
+##  Jupyter 설정
+
+주의! 한글 사용자명. 예: C:\Users\성주
+
+파이썬 환경을 주피터 커널로 등록하기
+```
+python -m ipykernel install --user --name pyml --display-name pyml
+```
 
 # Docker Desktop for Windows 설치
 
@@ -31,62 +105,5 @@ https://docs.docker.com/desktop/install/windows-install
 최초 실행 시, 약 680 MB 용량의 도커 이미지([codebasic/pyml](https://hub.docker.com/r/codebasic/pyml)) 다운로드가 실행됩니다.
 
 ```
-$ docker run --name pyml -p 8888:8888 -it codebasic/pyml
-```
-# 직접 설치 (Native)
-
-제시된 절차는 오픈 소스 라이선스 소프트웨어만을 활용하고 있습니다.
-
-## conda
-
-Conda는 패키지 관리 프로그램입니다. 소프트웨어 버전과 의존성 관리에 활용합니다.
-
-### Windows
-
-[Miniconda Windows](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe) 다운로드 및 설치
-
-### Mac
-
-아래 절차는 [Homebrew](https://brew.sh/index_ko) 소프트웨어를 가정합니다.
-
-```
-$ brew install miniforge
-$ conda init "$(basename "${SHELL}")"
-```
-터미널 세션 새로 시작 필요.
-
-### Linux
-
-[Miniforge](https://github.com/conda-forge/miniforge) 설치
-```
-$ wget -O Miniforge3.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
-$ ./Miniforge3.sh
-$ conda init "$(basename "${SHELL}")"
-```
-터미널 세션 새로 시작 필요.
-
-## 기계학습 소프트웨어
-
-### 파이썬 환경 생성
-
-```
-$ conda env create -f pyml.yml
-```
-
-[pyml.yml](pyml.yml) 참조.
-
-파이썬 환경 활성화
-```
-$ conda activate pyml
-```
-
-##  [선택적] Jupyter
-
-코드 작성 환경 (IDE) Jupyter Lab 설치.
-
-주의! 한글 사용자명. 예: C:\Users\성주
-
-```
-(pyml)$ pip install jupyterlab
-(pyml)$ python -m ipykernel install --user --name pyml --display-name pyml
+docker run --name pyml -p 8888:8888 -it codebasic/pyml
 ```
