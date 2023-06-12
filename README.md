@@ -82,6 +82,12 @@ conda activate pyml
 
 주의! 한글 사용자명. 예: C:\Users\성주
 
+쉘에서 파이썬 환경 활성화
+
+```
+conda activate pyml
+```
+
 파이썬 환경을 주피터 커널로 등록하기
 ```
 python -m ipykernel install --user --name pyml --display-name pyml
