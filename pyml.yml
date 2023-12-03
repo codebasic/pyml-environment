@@ -10,4 +10,5 @@ dependencies:
   - matplotlib
   - scikit-learn~=1.1.0
   - openpyxl
-  - jupyterlab
+  - pip:
+    - ipykernel
