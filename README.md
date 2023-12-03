@@ -9,45 +9,60 @@ Codebasic (c) 2023
     1. Mac (Apple Silicon/Intel x86-64bit)
     1. Linux (x86-64bit)
 
-## 설치 방법
+제시된 절차는 오픈 소스 라이선스 소프트웨어만을 활용하고 있습니다. 제시된 절차는 오픈 소스 라이선스 소프트웨어만을 활용하고 있습니다. 
+파이썬 환경 설정의 편의를 위해 Conda 소프트웨어를 활용합니다.
 
-둘 중 하나의 방법을 선택
+각 플랫폼별 환경 설정 섹션을 참조하여 설치를 진행할 수 있습니다.
 
-1. 직접 설치 (conda)
-1. Docker
-
-# 직접 설치
-
-제시된 절차는 오픈 소스 라이선스 소프트웨어만을 활용하고 있습니다.
-
-## conda
-
-Conda는 패키지 관리 프로그램입니다. 소프트웨어 버전과 의존성 관리에 활용합니다.
-
-### Windows
+## Windows
 
 [Miniconda Windows](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe) 다운로드 및 설치
 
-### Mac
+설치 후, Anaconda Powershell Prompt에서 
+[pyml.yml](pyml.yml) 파일을 참조하여 다음과 같이 설치를 진행합니다.
+
+```powershell
+conda env create -f pyml.yml
+```
+
+## Mac
+
+애플 실리콘과 인텔(x86-64) 기반 모두 지원합니다.
 
 아래 절차는 [Homebrew](https://brew.sh/index_ko) 소프트웨어를 가정합니다.
 
-conda 설치
-```
+Conda 설치
+
+```zsh
 brew install miniconda
 ```
 
-쉘에서 conda 환경 사용 설정
-```
+설치 완료 후, 쉘에서 conda 명령을 활용할 수 있도록 설정
+```zsh
 conda init "$(basename "${SHELL}")"
 ```
-터미널 세션 새로 시작 필요.
 
-### Linux
+이후 절차는 **새 터미널**에서 진행합니다. 
 
-[Miniforge](https://github.com/conda-forge/miniforge) 설치
+### Apple Silicon
 
-Miniforge 설치 파일 다운로드
+[apple_silicon.sh](apple_silicon.sh) 파일을 참조하여 다음과 같이 설치를 진행합니다.
+
+```zsh
+source ./apple_silicon.sh
+```
+
+### Intel CPU
+
+[pyml.yml](pyml.yml) 파일을 참조하여 다음과 같이 설치를 진행합니다.
+
+```zsh
+conda env create -f pyml.yml
+```
+
+## Linux
+
+[Miniforge](https://github.com/conda-forge/miniforge) 설치 스크립트 다운로드
 ```
 wget -O Miniforge3.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 ```
@@ -57,59 +72,32 @@ Miniforge 설치
 ./Miniforge3.sh
 ```
 
-쉘에서 conda 환경 사용 설정
+설치 완료 후, 쉘에서 conda 명령을 활용할 수 있도록 설정
 ```
 conda init "$(basename "${SHELL}")"
 ```
-터미널 세션 새로 시작 필요.
+이후 절차는 **새 터미널**에서 진행합니다. 
 
-## 기계학습 소프트웨어
+[pyml.yml](pyml.yml) 파일을 참조하여 다음과 같이 설치를 진행합니다.
 
-### 파이썬 환경 생성
-
-```
+```bash
 conda env create -f pyml.yml
 ```
 
-[pyml.yml](pyml.yml) 참조.
+##  [선택적] Jupyter
 
-파이썬 환경 활성화
-```
-conda activate pyml
-```
+코드 작성 환경 (IDE) Jupyter Lab 설치. [직접 설치](#직접-설치-native)를 진행한 경우를 가정합니다. 
 
-##  Jupyter 설정
+도커 환경을 활용하는 경우는 설치와 설정이 완료되어 있습니다.
 
-주의! 한글 사용자명. 예: C:\Users\성주
+Jupyter Lab 설치
 
-쉘에서 파이썬 환경 활성화
-
-```
-conda activate pyml
+```bash
+conda run -n pyml pip install jupyterlab
 ```
 
-파이썬 환경을 주피터 커널로 등록하기
-```
-python -m ipykernel install --user --name pyml --display-name pyml
-```
+파이썬 환경을 주피터 커널로 등록합니다. 주의! 한글 사용자명. 예: C:\Users\성주
 
-# Docker Desktop for Windows 설치
-
-Docker Desktop은 무료로 설치가 가능하지만 상용 라이선스 소프트웨어입니다. 개인 및 중소 규모 조직은 무료로 사용할 수 있습니다. 
-
-정부 기관 및 대기업 환경에서 활용 시 라이선스를 검토하시기 바랍니다. 상용 라이선스 소프트웨어 설치와 활용에 대한 우려가 있는 경우, 직접 설치 절차를 진행하기 바랍니다.
-
-https://docs.docker.com/desktop/install/windows-install
-
-## 요구사항
-
-* Windows 10+ 64비트 (x86-64)
-* [WSL 설치](https://learn.microsoft.com/ko-kr/windows/wsl/install#install-wsl-command)
-
-## 도커 컨테이너 실행
-
-최초 실행 시, 약 680 MB 용량의 도커 이미지([codebasic/pyml](https://hub.docker.com/r/codebasic/pyml)) 다운로드가 실행됩니다.
-
-```
-docker run --name pyml -p 8888:8888 -it codebasic/pyml
+```bash
+conda run -n pyml python -m ipykernel install --user --name pyml --display-name "pyml"
 ```
