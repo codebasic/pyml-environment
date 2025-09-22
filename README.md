@@ -24,7 +24,7 @@ Codebasic (c) 2015-2025
 ## 파이썬 환경 생성
 
 ```powershell
-conda env create --name pyml python=3.10
+conda create --name pyml python=3.10
 ```
 
 ## 기계학습 라이브러리 구축
