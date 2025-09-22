@@ -1,11 +1,12 @@
-Codebasic (c) 2023
+# 기계학습 환경 구성
+
+Codebasic (c) 2015-2025
 
 다음 문서는 아래 플랫폼별 기계학습 소프트웨어 라이브러리 설치 절차를 안내합니다.
 
-제시된 절차는 오픈 소스 라이선스 소프트웨어만을 활용하고 있습니다. 제시된 절차는 오픈 소스 라이선스 소프트웨어만을 활용하고 있습니다. 
-파이썬 환경 설정의 편의를 위해 Conda 소프트웨어를 활용합니다.
+제시된 절차는 오픈 소스 라이선스 소프트웨어만을 활용하고 있습니다. 제시된 절차는 오픈 소스 라이선스 소프트웨어만을 활용하고 있습니다. 파이썬 환경 설정의 편의를 위해 Conda 소프트웨어를 활용합니다.
 
-# 플랫폼
+## 플랫폼
 
 1. Windows (x86-64bit)
 1. 유닉스 계열 (Unix-Like)
@@ -14,87 +15,39 @@ Codebasic (c) 2023
 
 각 플랫폼별 환경 설정 섹션을 참조하여 설치를 진행할 수 있습니다.
 
-## Windows
+## Miniconda
 
-[Miniconda Windows](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe) 다운로드 및 설치
+미니콘다를 각 플랫폼별 안내에 따라 설치합니다.
 
-설치 후, Anaconda Powershell Prompt에서 
-[pyml.yml](pyml.yml) 파일을 참조하여 다음과 같이 설치를 진행합니다.
+[Minconda 설치](https://www.anaconda.com/docs/getting-started/miniconda/install)
+
+## 파이썬 환경 생성
 
 ```powershell
-conda env create -f pyml.yml
+conda env create --name pyml python=3.10
 ```
 
-## Mac
+## 기계학습 라이브러리 구축
 
-아래 절차는 [Homebrew](https://brew.sh/index_ko) 소프트웨어를 가정합니다.
+환경이 생성된 이후, 다음을 실행하여 소프트웨어 설치를 진행합니다.
 
-Conda 설치
-
-```zsh
-brew install miniconda
+```sh
+conda activate pyml
+conda install --c conda-forge scikit-learn pandas matplotlib ipykernel
 ```
 
-설치 완료 후, 쉘에서 conda 명령을 활용할 수 있도록 설정
-```zsh
-conda init "$(basename "${SHELL}")"
-```
-
-이후 절차는 **새 터미널**에서 진행합니다. 
-
-### Apple Silicon
-
-[apple_silicon.sh](apple_silicon.sh) 파일을 참조하여 다음과 같이 설치를 진행합니다.
-
-```zsh
-source ./apple_silicon.sh
-```
-
-### Intel CPU
-
-[pyml.yml](pyml.yml) 파일을 참조하여 다음과 같이 설치를 진행합니다.
-
-```zsh
-conda env create -f pyml.yml
-```
-
-## Linux
-
-[Miniforge](https://github.com/conda-forge/miniforge) 설치 스크립트 다운로드
-```
-wget -O Miniforge3.sh "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
-```
-
-Miniforge 설치
-```
-./Miniforge3.sh
-```
-
-설치 완료 후, 쉘에서 conda 명령을 활용할 수 있도록 설정
-```
-conda init "$(basename "${SHELL}")"
-```
-이후 절차는 **새 터미널**에서 진행합니다. 
-
-[pyml.yml](pyml.yml) 파일을 참조하여 다음과 같이 설치를 진행합니다.
-
-```bash
-conda env create -f pyml.yml
-```
-
-##  [선택적] Jupyter
+## [선택적] Jupyter
 
 코드 작성 환경 (IDE) Jupyter Lab 설치.
 
 Jupyter Lab 설치
 
 ```bash
-conda run -n pyml pip install jupyterlab
+conda run --no-capture-output -n pyml pip install jupyterlab
 ```
 
-파이썬 환경을 주피터 커널로 등록합니다. 
-주의! 한글 사용자명. 예: C:\Users\성주
+파이썬 환경을 주피터 커널로 등록합니다. 주의! 한글 사용자명. 예: C:\Users\성주
 
 ```bash
-conda run -n pyml python -m ipykernel install --user --name pyml --display-name "pyml"
+conda run --no-capture-output -n pyml python -m ipykernel install --user --name pyml --display-name "pyml"
 ```
