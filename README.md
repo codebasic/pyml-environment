@@ -33,7 +33,7 @@ conda create --name pyml python=3.10
 
 ```sh
 conda activate pyml
-conda install --c conda-forge scikit-learn pandas matplotlib ipykernel
+conda install -c conda-forge scikit-learn pandas matplotlib ipykernel
 ```
 
 ## [선택적] Jupyter
