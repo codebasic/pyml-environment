@@ -67,7 +67,7 @@ Miniconda에서는 Anaconda 채널이 기본이기 때문에, 상업적 사용 �
 
 ### 파이썬 환경 생성
 
-```powershell
+```bash
 conda create --name pyml python=3.10 -c conda-forge
 ```
 
@@ -75,22 +75,20 @@ conda create --name pyml python=3.10 -c conda-forge
 
 환경이 생성된 이후, 다음을 실행하여 소프트웨어 설치를 진행합니다.
 
-```sh
+```bash
 conda activate pyml
 conda install -c conda-forge scikit-learn pandas matplotlib ipykernel
 ```
 
 ### [선택적] Jupyter
 
-코드 작성 환경 (IDE) Jupyter Lab 설치.
-
-Jupyter Lab 설치
+코드 작성 환경 (IDE) Jupyter Lab 설치
 
 ```bash
-conda run --no-capture-output -n pyml pip install jupyterlab
+conda run --no-capture-output -n pyml conda install -c conda-forge jupyterlab
 ```
 
-파이썬 환경을 주피터 커널로 등록합니다. 주의! 한글 사용자명. 예: C:\Users\성주
+파이썬 환경을 주피터 커널로 등록합니다.
 
 ```bash
 conda run --no-capture-output -n pyml python -m ipykernel install --user --name pyml --display-name "pyml"
