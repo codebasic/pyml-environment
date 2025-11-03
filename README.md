@@ -28,6 +28,19 @@ Miniforge, Anaconda Distribution과 같은 conda 배포판에서 사용되며, �
 
 **conda** 명령줄 인터페이스(CLI)는 전적으로 **Python**으로 작성되었으며, **BSD 라이선스의 오픈소스**로 공개되어 있습니다. [conda(GitHub)](https://github.com/conda/conda)
 
+### 쉘 설정
+
+콘다는 설치 후, 사용할 쉘에서 설정이 필요합니다.
+
+#### Windows PowerShell
+
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+& "$env:HOME\miniconda3\Scripts\conda.exe" init powershell
+```
+
+설정 후, 쉘 재시작이 필요할 수 있습니다.
+
 ### Anaconda
 
 - Anaconda, Inc.에서 배포하는 **풀 패키지 배포판**  
