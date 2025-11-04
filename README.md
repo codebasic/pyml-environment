@@ -95,14 +95,11 @@ conda install -c conda-forge scikit-learn pandas matplotlib ipykernel
 
 ### [선택적] Jupyter
 
-코드 작성 환경 (IDE) Jupyter Lab 설치
+코드 작성 환경 (IDE) Jupyter Lab 설치.
+
+[Astral uv](https://docs.astral.sh/uv/) 사용
 
 ```bash
-conda run --no-capture-output -n pyml conda install -c conda-forge jupyterlab
-```
-
-파이썬 환경을 주피터 커널로 등록합니다.
-
-```bash
-conda run --no-capture-output -n pyml python -m ipykernel install --user --name pyml --display-name "pyml"
+# Astral UV를 통해 최신 버전의 Jupyter Lab을 실행합니다.
+uvx --from jupyterlab jupyter-lab
 ```
