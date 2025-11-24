@@ -36,7 +36,7 @@ Miniforge, Anaconda Distribution과 같은 conda 배포판에서 사용되며, �
 
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-& "$env:HOME\miniconda3\Scripts\conda.exe" init powershell
+& "$env:USERPROFILE\miniconda3\Scripts\conda.exe" init powershell
 ```
 
 설정 후, 쉘 재시작이 필요할 수 있습니다.
@@ -89,8 +89,7 @@ conda create --name pyml python=3.10 -c conda-forge
 환경이 생성된 이후, 다음을 실행하여 소프트웨어 설치를 진행합니다.
 
 ```bash
-conda activate pyml
-conda install -c conda-forge scikit-learn pandas matplotlib ipykernel
+conda install -n pyml -c conda-forge scikit-learn pandas matplotlib ipykernel
 ```
 
 ### [선택적] Jupyter
