@@ -36,7 +36,7 @@ Miniforge, Anaconda Distribution과 같은 conda 배포판에서 사용되며, �
 
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-& "$env:USERPROFILE\miniconda3\Scripts\conda.exe" init powershell
+& "$CONDA_PATH" init powershell
 ```
 
 설정 후, 쉘 재시작이 필요할 수 있습니다.
@@ -101,4 +101,10 @@ conda install -n pyml -c conda-forge scikit-learn pandas matplotlib ipykernel
 ```bash
 # Astral UV를 통해 최신 버전의 Jupyter Lab을 실행합니다.
 uvx --from jupyterlab jupyter-lab
+```
+
+사용할 환경을 주피터 커널로 등록
+
+```bash
+conda run --name pyml python -m ipykernel install --user --name pyml
 ```
