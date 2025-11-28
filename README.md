@@ -74,6 +74,14 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 - **추가적인 상업적 제약 없음**  
 - 기업/개인 모두 자유롭게 사용 가능
 
+### 도커 (Docker)
+
+conda가 이미 설치된 도커 이미지 활용을 권장합니다.
+
+```sh
+docker run --name pyml -d codebasic/conda tail -f /dev/null
+```
+
 ## 소프트웨어 설치
 
 Miniconda에서는 Anaconda 채널이 기본이기 때문에, 상업적 사용 라이선스를 가정하지 않기 위해 아래 절차에서는 conda-forge 채널을 활용합니다.
