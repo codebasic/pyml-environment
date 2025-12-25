@@ -53,34 +53,21 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ### Miniconda
 
 - **최소 설치판**: Python + conda만 포함  
-- 필요한 패키지는 사용자가 직접 설치 (주로 conda-forge 활용)  
-- 가볍고 유연 → 용량이 작고, 환경을 깨끗하게 유지 가능  
-- 기업/기관 환경에서 **conda-forge 채널**과 함께 주로 사용  
+- 필요한 패키지는 사용자가 직접 설치
 
 ### Conda 채널 라이선스 비교
 
 #### defaults (Anaconda)
 
 - Anaconda, Inc.가 관리하는 기본 채널  
-- 패키지 본래의 오픈소스 라이선스는 동일  
-- 단, **defaults 채널에서 제공하는 바이너리 배포본**은  
-  Anaconda **Terms of Service** 적용  
+- **바이너리 배포본**은  Anaconda **Terms of Service** 적용  
 - 상업적 사용(기업 환경) 시 별도 계약이 필요할 수 있음  
 
 #### conda-forge
 
 - 전 세계 커뮤니티가 관리하는 채널  
-- 패키지 본래의 오픈소스 라이선스 그대로 배포  
-- **추가적인 상업적 제약 없음**  
+- 패키지 본래의 오픈소스 라이선스 그대로 배포
 - 기업/개인 모두 자유롭게 사용 가능
-
-### 도커 (Docker)
-
-conda가 이미 설치된 도커 이미지 활용을 권장합니다.
-
-```sh
-docker run --name pyml -d codebasic/conda tail -f /dev/null
-```
 
 ## 소프트웨어 설치
 
@@ -115,4 +102,38 @@ uvx --from jupyterlab jupyter-lab
 
 ```bash
 conda run --name pyml python -m ipykernel install --user --name pyml
+```
+
+## Docker
+
+도커를 활용하면 소프트웨어 설치와 설정이 완료된 상태로 바로 시작할 수 있습니다.
+
+```sh
+docker run --name pyml -d codebasic/pyml
+```
+
+### 주피터 서버
+
+컨테이너에서 주피터(jupyter) 서버가 실행 중인 경우, 호스트 웹브라우저에서 다음 주소로 접속합니다.
+
+`http://localhost:8888`
+
+토큰 값이 필요한 경우, 도커 컨테이너 쉘에서 다음 명령으로 토큰 값을 확인합니다.
+
+```sh
+docker exec pyml jupyter server list
+```
+
+컨테이너 내부의 URL은 호스트의 `localhost`로 접속해야 합니다. 다음 명령으로 호스트 주소로 치환할 수 있습니다.
+
+- 파워쉘(Windows PowerShell)
+
+```powershell
+docker exec pyml jupyter server list | ForEach-Object { $_ -replace 'http://[^:]+', 'http://localhost' }
+```
+
+- POSIX 쉘 (bash/zsh 등)
+  
+```sh
+docker exec pyml jupyter server list | sed -E 's#http://[^:]+#http://localhost#'
 ```
