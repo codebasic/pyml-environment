@@ -19,13 +19,13 @@ Codebasic (c) 2015-2025
 
 [미니콘다(Miniconda) 설치](https://www.anaconda.com/docs/getting-started/miniconda/install)
 
-콘다(Conda)는 크로스 플랫폼(cross-platform)에서 동작하며, 특정 언어에 종속되지 않는 범용 바이너리 패키지 관리자입니다.  
+콘다는 크로스 플랫폼(cross-platform) 범용 바이너리 패키지 관리자입니다.  
 
 미니포지(Miniforge), 아나콘다 배포판(Anaconda Distribution)과 같은 콘다 배포판에서 사용되며, 다양한 시스템에서도 활용 가능합니다.  
 
 주로 파이썬(Python) 기반 소프트웨어와 라이브러리 설치 및 환경 관리에 활용되지만, 다른 언어의 패키지와 도구도 관리할 수 있습니다.
 
-콘다(Conda) 명령줄 인터페이스(CLI)는 전적으로 파이썬(Python)으로 작성되었으며, [BSD 라이선스](https://ko.wikipedia.org/wiki/BSD_%ED%97%88%EA%B0%80%EC%84%9C)의 오픈소스로 공개되어 있습니다. [Conda GitHub 저장소](https://github.com/conda/conda)
+콘다 명령줄 인터페이스(CLI)는 전적으로 파이썬(Python)으로 작성되었으며, [BSD 라이선스](https://ko.wikipedia.org/wiki/BSD_%ED%97%88%EA%B0%80%EC%84%9C)의 오픈소스로 공개되어 있습니다. [Conda GitHub 저장소](https://github.com/conda/conda)
 
 ### 쉘 설정
 
