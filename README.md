@@ -101,7 +101,7 @@ Miniconda에서는 Anaconda 채널이 기본이기 때문에, 상업적 사용 �
 
 ### 파이썬 환경 생성
 
-```bash
+```shell
 conda create --name pyml python=3.10 -c conda-forge
 ```
 
@@ -109,7 +109,7 @@ conda create --name pyml python=3.10 -c conda-forge
 
 생성된 환경 활성화:
 
-```bash
+```shell
 conda activate pyml
 ```
 
@@ -119,7 +119,7 @@ conda activate pyml
 
 환경이 생성된 이후, 다음을 실행하여 소프트웨어 설치를 진행합니다.
 
-```bash
+```shell
 conda install -n pyml -c conda-forge scikit-learn pandas matplotlib ipykernel
 ```
 
@@ -129,13 +129,14 @@ conda install -n pyml -c conda-forge scikit-learn pandas matplotlib ipykernel
 
 [Astral uv](https://docs.astral.sh/uv/) 사용
 
-```bash
-# Astral UV를 통해 최신 버전의 Jupyter Lab을 실행합니다.
+Astral UV를 통해 최신 버전의 Jupyter Lab을 실행합니다.
+
+```shell
 uvx --from jupyterlab jupyter-lab
 ```
 
 사용할 환경을 주피터 커널로 등록
 
-```bash
+```shell
 conda run --name pyml python -m ipykernel install --user --name pyml
 ```
