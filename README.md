@@ -4,7 +4,7 @@ Codebasic (c) 2015-2025
 
 다음 문서는 아래 플랫폼별 기계학습 소프트웨어 라이브러리 설치 절차를 안내합니다.
 
-제시된 절차는 오픈 소스 라이선스 소프트웨어만을 활용하고 있습니다. 제시된 절차는 오픈 소스 라이선스 소프트웨어만을 활용하고 있습니다. 파이썬 환경 설정의 편의를 위해 Conda 소프트웨어를 활용합니다.
+제시된 절차는 오픈 소스 라이선스 소프트웨어만을 활용하고 있습니다. 파이썬 환경 설정의 편의를 위해 Conda 소프트웨어를 활용합니다.
 
 ## 플랫폼
 
@@ -32,14 +32,28 @@ Miniforge, Anaconda Distribution과 같은 conda 배포판에서 사용되며, �
 
 콘다는 설치 후, 사용할 쉘에서 설정이 필요합니다.
 
+#### macOS/Linux
+
+```shell
+conda init
+```
+
 #### Windows PowerShell
 
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-& "$CONDA_PATH" init powershell
+conda init powershell
 ```
 
-설정 후, 쉘 재시작이 필요할 수 있습니다.
+#### 설정 확인
+
+모든 플랫폼에서 쉘을 재시작한 후 다음 명령으로 설정 확인:
+
+```shell
+conda --version
+```
+
+성공적으로 설정되면 버전 정보가 출력됩니다.
 
 ### Anaconda
 
@@ -91,6 +105,16 @@ Miniconda에서는 Anaconda 채널이 기본이기 때문에, 상업적 사용 �
 ```bash
 conda create --name pyml python=3.10 -c conda-forge
 ```
+
+#### 환경 활성화
+
+생성된 환경 활성화:
+
+```bash
+conda activate pyml
+```
+
+성공하면 터미널 프롬프트에 `(pyml)` 표시가 나타납니다.
 
 ### 기계학습 라이브러리 구축
 
