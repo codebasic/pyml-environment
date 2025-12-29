@@ -110,22 +110,41 @@ conda activate pyml
 conda install -n pyml -c conda-forge scikit-learn pandas matplotlib ipykernel
 ```
 
-### [선택적] Jupyter
+### [선택적] Jupyter Lab
 
-코드 작성 환경 (IDE) Jupyter Lab 설치.
+[Jupyter Lab](https://jupyter.org/)은 웹 기반의 대화형 노트북 환경으로, 파이썬 코드 작성, 실행, 시각화를 한 곳에서 할 수 있습니다. 기계학습 실습에서 데이터 분석과 모델 개발에 주로 사용됩니다.
 
-[Astral uv](https://docs.astral.sh/uv/) 사용
+1. 커널 등록
 
-Astral UV를 통해 최신 버전의 Jupyter Lab을 실행합니다.
+    ```shell
+    conda run -n pyml python -m ipykernel install --user --name pyml
+    ```
+
+1. Jupyter Lab 설치
+
+    ```shell
+    conda install -n pyml -c conda-forge jupyterlab
+    ```
+
+1. Jupyter Lab 실행
+
+    ```shell
+    conda run -n pyml --no-capture-output jupyter-lab
+    ```
+
+실행하면 기본 웹브라우저가 자동으로 열립니다.
+
+터미널에서 Jupyter 서버 주소를 확인하려면 다음 명령을 실행합니다.
 
 ```shell
-uvx --from jupyterlab jupyter-lab
+conda run -n pyml jupyter server list
 ```
 
-사용할 환경을 주피터 커널로 등록
+출력예시:
 
 ```shell
-conda run --name pyml python -m ipykernel install --user --name pyml
+Currently running servers:
+http://localhost:8888/?token=82cd0... :: D:\pyml
 ```
 
 ## Docker
