@@ -32,17 +32,16 @@ Miniforge, Anaconda Distribution과 같은 conda 배포판에서 사용되며, �
 
 콘다는 설치 후, 사용할 쉘에서 설정이 필요합니다.
 
-#### macOS/Linux
-
 ```shell
 conda init
 ```
 
 #### Windows PowerShell
 
+윈도우에서는 스크립트 실행 권한 설정이 필요할 수 있습니다.
+
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-conda init powershell
 ```
 
 #### 설정 확인
