@@ -1,0 +1,10 @@
+services:
+  pyml:
+    image: codebasic/pyml:latest
+    container_name: pyml
+    volumes:
+      - type: bind
+        source: matplotlibrc.linux
+        target: /workspace/matplotlibrc
+    ports:
+      - "8888:8888" # Jupyter
