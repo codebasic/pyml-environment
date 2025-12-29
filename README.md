@@ -90,15 +90,11 @@ conda --version
 conda create --name pyml python=3.10 --channel conda-forge
 ```
 
-#### 환경 활성화
-
 생성된 환경 활성화:
 
 ```shell
 conda activate pyml
 ```
-
-성공하면 터미널 프롬프트에 `(pyml)` 표시가 나타납니다.
 
 ### 기계학습 라이브러리 구축
 
